@@ -72,4 +72,33 @@ formButton.addEventListener('click', () => {
         phoneInput.classList.remove('red');
         validMessage.innerHTML = ''
     }
-})
+});
+
+const menuButton = document.querySelector('.header__nav');
+const menuMob = document.querySelector('.header__nav > ul');
+const menuMobLink = document.querySelectorAll('.nav__link');
+const menuLine = document.querySelectorAll('.header__nav > span');
+
+function menuMobAnimate() {
+    menuLine[0].classList.toggle('top');
+    menuLine[1].classList.toggle('out');
+    menuLine[2].classList.toggle('bottom');
+    header.classList.toggle('header-white');
+    menuMob.classList.toggle('open');
+}
+
+menuButton.addEventListener('click', () => {
+    menuMobAnimate();
+});
+
+menuMobLink.forEach(link => {
+    console.log(link);
+    link.addEventListener('click', () => {
+        menuMobAnimate();
+        event.stopPropagation();
+    })
+});
+
+
+
+

@@ -471,13 +471,67 @@ span.red {
             display: flex;
             align-items: center;
         }
+        &__logo {
+            position: relative;
+            z-index: 5;
+        }
+        &-white {
+            background: #fff;
+            padding: 24px 0px;
+        }
         &__nav {
-            display: none;
-            margin-left: auto;
+            width: 24px;
+            height: 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 5;
+            span {
+                width: 24px;
+                height: 2px;
+                background: #000;
+            }
+            .out {
+                animation: out 0.5s 0.7s forwards;
+            }
+            .top {
+                animation: top 0.5s 0.7s forwards;
+            }
+            .bottom {
+                animation: bottom 0.5s 0.7s forwards;
+            }
+            @keyframes out {
+                to {
+                    transform: translateX(200%);
+                }
+            }
+            @keyframes top {
+                to {
+                    transform: translateY(7px) rotate(45deg);
+                }
+            }
+            @keyframes bottom {
+                to {
+                    transform: translateY(-7px) rotate(-45deg);
+                }
+            }
             ul {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff;
+                z-index: 4;
+                padding-top: 20px;
+                padding-left: 16px;
+                transform: translateY(-150%);
+                transition: all 0.5s linear;
                 li {
-                    display: inline-block;
-                    margin-left: 32px;
+                    display: block;
+                    margin-left: 0;
+                    margin-bottom: 20px;
                     a {
                         color: #000;
                         position: relative;
@@ -496,13 +550,12 @@ span.red {
                         width: 100%;
                     }
                     button.popup {
-                        padding: 10px 20px;
-                        background: @red;
-                        border-radius: 50px;
-                        color: #fff;
-                        cursor: pointer;  
+                        display: none; 
                     }
                 }
+            }
+            .open {
+                transform: translateY(0%);
             }
         }
     }
