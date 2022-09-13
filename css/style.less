@@ -298,12 +298,81 @@ span.red {
     }
     &__image {
         text-align: center;
+        img {
+            cursor: pointer;
+        }
         span {
             display: inline-block;
             margin-top: 8px;
             color: #8D959D;
         }
     }
+}
+
+.popup__image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 6;
+    visibility: hidden;
+    &-body {
+        max-width: 600px;
+        max-height: 550px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-250%);
+        background: #fff;
+        text-align: center;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s linear;
+        img {
+            max-width: 100%;
+        }
+        #caption {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+    &-body-open {
+        transform: translateX(-50%) translateY(-50%);
+    }
+    &-close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background: #fff;
+        border-radius: 50%;
+        z-index: 5;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            margin: 7px 0px;
+            background: #000;
+        }
+        span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        span:nth-child(2) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+.popup__image-open {
+    visibility: visible;
 }
 
 .contact {
@@ -398,7 +467,7 @@ span.red {
                 margin-top: 32px;
             }
             .label-up {
-                animation: top 0.3s linear forwards;
+                animation: up 0.3s linear forwards;
             }
             .red {
                 color: @red;
@@ -409,7 +478,7 @@ span.red {
                 color: @red;
                 margin-left: auto;
             }
-            @keyframes top {
+            @keyframes up {
                 to {
                     top: 0;
                     font-size: 1em;
@@ -639,6 +708,9 @@ span.red {
                 input, textarea {
                     max-width: 100%;
                 }
+                button.form {
+                    min-width: 100%;
+                }
             }
         }
     }
@@ -649,6 +721,24 @@ span.red {
             span {
                 margin: 8px 0px;
             }
+        }
+    }
+
+    .popup__image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 6;
+        &-body {
+            max-width: 90%;
+            min-width: 90%;
+        }
+        #caption {
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     }
 }

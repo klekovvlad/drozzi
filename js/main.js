@@ -92,12 +92,35 @@ menuButton.addEventListener('click', () => {
 });
 
 menuMobLink.forEach(link => {
-    console.log(link);
     link.addEventListener('click', () => {
         menuMobAnimate();
         event.stopPropagation();
     })
 });
+
+const popup = document.querySelector('.popup__image');
+const popupImage = document.querySelector('.image__open');
+const popupOpen = document.querySelector('.popup__open');
+const popupText = document.querySelector('#caption');
+const popupClose = document.querySelector('.popup__image-close');
+const popupBody = document.querySelector('.popup__image-body');
+
+function popupShow() {
+    popup.classList.toggle('popup__image-open');
+    popupBody.classList.toggle('popup__image-body-open');
+}
+
+popupOpen.addEventListener('click', () => {
+    popupShow();
+    popupImage.src = popupOpen.src;
+    popupText.innerHTML = popupOpen.alt;
+});
+
+popupClose.addEventListener('click', () => {
+    popupShow();
+});
+
+
 
 
 
