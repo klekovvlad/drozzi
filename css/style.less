@@ -169,6 +169,20 @@ span.red {
             color: @red;
             text-transform: uppercase;
             margin-left: auto;
+            position: relative;
+            padding-right: 30px;
+        }
+        a.more:before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            height: 18px;
+            width: 18px;
+            background: url(../img/icons/arrow.svg) no-repeat center;
+            background-size: cover;
+            transform: translateY(-50%) rotate(-90deg);
+            filter: saturate(10) hue-rotate(167deg);
         }
     }
     &__wrapper {
